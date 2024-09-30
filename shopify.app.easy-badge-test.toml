@@ -1,0 +1,29 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "626bc6d5e882c2548f50671a3339ff76"
+name = "Easy Badge Test"
+handle = "easy-badge-test"
+application_url = "https://mattress-kodak-cowboy-carmen.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "easy-badge-store-087.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_files,read_products,read_themes,write_content,write_files,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://mattress-kodak-cowboy-carmen.trycloudflare.com/auth/callback",
+  "https://mattress-kodak-cowboy-carmen.trycloudflare.com/auth/shopify/callback",
+  "https://mattress-kodak-cowboy-carmen.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+[pos]
+embedded = false

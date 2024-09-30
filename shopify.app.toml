@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "70f8fd43a120a104f446c8b8ddb60f0e"
+name = "App Staging 1"
+handle = "app-staging"
+application_url = "https://orlando-pocket-indices-bunch.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "app-staging.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_files,read_products,read_themes,write_content,write_files,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://orlando-pocket-indices-bunch.trycloudflare.com/auth/callback",
+  "https://orlando-pocket-indices-bunch.trycloudflare.com/auth/shopify/callback",
+  "https://orlando-pocket-indices-bunch.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  uri = "https://app.domain/api/webhooks"
+  compliance_topics = [ "customers/data_request", "customers/redact", "shop/redact" ]
+
+[pos]
+embedded = false
