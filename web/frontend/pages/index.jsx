@@ -11,10 +11,12 @@ import {
     Banner,
     FooterHelp,
     Link,
-    Box
+    Box,
+    Tabs,
+    LegacyCard
 } from "@shopify/polaris";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { GET_MERCHANT_BY_SHOP_ENCODE } from "../../apollo-client/query.js";
 import { appClient } from "../../apollo-client/index.js";
@@ -26,17 +28,55 @@ export default function HomePage() {
     const shopify = useAppBridge()
     const shopUrl = shopify.config.shop
     const shopEndcode = encode(shopUrl)
+    const [selected, setSelected] = useState(0);
+
+    const handleTabChange = useCallback(
+        (selectedTabIndex) => setSelected(selectedTabIndex),
+        [],
+    );
 
     const [getMerchant, {data}] = useLazyQuery(GET_MERCHANT_BY_SHOP_ENCODE, {
         client: appClient,
         fetchPolicy: "no-cache"
     })
 
-    // const href = `https://${shopUrl}/admin/themes/current/editor?context=apps&template=product&activateAppId=${process.env.SHOPIFY_THEME_APP_EXTENSION_ID}/shinepage-scripts`
-    // const newWindow = window.open(href, '_blank')
-    // if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-    //     shopify.toast.show("Unblock browser pop-ups and try again")
-    // }
+    const tabs = [
+        {
+          id: 'seasonal-effects',
+          content: 'Seasonal Effects',
+          badge: '10+',
+          accessibilityLabel: 'Seasonal Effects',
+          panelID: 'seasonal-effects',
+        },
+        {
+          id: 'store-sale-effects',
+          content: 'Store Sale Effects',
+          badge: '10+',
+          accessibilityLabel: 'Store Sale Effects',
+          panelID: 'store-sale-effects',
+        },
+        {
+          id: 'fall-effects',
+          content: 'Fall Effects',
+          badge: '10+',
+          accessibilityLabel: 'Fall Effects',
+          panelID: 'fall-effects',
+        },
+        {
+          id: 'space-effects',
+          content: 'Space Effects',
+          badge: '10+',
+          accessibilityLabel: 'Space Effects',
+          panelID: 'space-effects',
+        },
+        {
+          id: 'other-effects',
+          content: 'Other Effects',
+          badge: '10+',
+          accessibilityLabel: 'Other Effects',
+          panelID: 'other-effects',
+        },
+    ];
 
     useEffect(() => {
 
@@ -60,6 +100,7 @@ export default function HomePage() {
                         Welcome to Easy Builder, where you can freely create websites according to your own personality without worrying about functional limitations.
                     </Text>
                 </Box>
+
                 <Box>
                     <Banner
                         title="Easy Effects is currently disabled on your store. Click 'Enable App' to activate."
@@ -73,6 +114,17 @@ export default function HomePage() {
                         </p>
                     </Banner>
                 </Box>
+
+                <Box>
+                    <LegacyCard sectioned>
+                        <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange} fitted>
+                            <LegacyCard.Section title={tabs[selected].content}>
+                                <p>Tab {selected} selected</p>
+                            </LegacyCard.Section>
+                        </Tabs>
+                    </LegacyCard>
+                </Box>
+
                 <Box>
                     <FooterHelp>
                         Learn more about{' '}

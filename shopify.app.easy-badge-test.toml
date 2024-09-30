@@ -3,13 +3,12 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://trek-pregnancy-essentially-monetary.trycloudflare.com"
+application_url = "https://documented-specifically-hl-artistic.trycloudflare.com"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
 dev_store_url = "easy-badge-store-087.myshopify.com"
-include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -17,9 +16,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://trek-pregnancy-essentially-monetary.trycloudflare.com/auth/callback",
-  "https://trek-pregnancy-essentially-monetary.trycloudflare.com/auth/shopify/callback",
-  "https://trek-pregnancy-essentially-monetary.trycloudflare.com/api/auth/callback"
+  "https://documented-specifically-hl-artistic.trycloudflare.com/auth/callback",
+  "https://documented-specifically-hl-artistic.trycloudflare.com/auth/shopify/callback",
+  "https://documented-specifically-hl-artistic.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
