@@ -13,10 +13,6 @@ import {
     Link,
     Box
 } from "@shopify/polaris";
-import { 
-    MenuHorizontalIcon,
-    PlusIcon
-} from '@shopify/polaris-icons';
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";

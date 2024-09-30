@@ -3,7 +3,7 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://foreign-steady-tradition-qt.trycloudflare.com"
+application_url = "https://trek-pregnancy-essentially-monetary.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://foreign-steady-tradition-qt.trycloudflare.com/auth/callback",
-  "https://foreign-steady-tradition-qt.trycloudflare.com/auth/shopify/callback",
-  "https://foreign-steady-tradition-qt.trycloudflare.com/api/auth/callback"
+  "https://trek-pregnancy-essentially-monetary.trycloudflare.com/auth/callback",
+  "https://trek-pregnancy-essentially-monetary.trycloudflare.com/auth/shopify/callback",
+  "https://trek-pregnancy-essentially-monetary.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
