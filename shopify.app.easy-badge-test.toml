@@ -3,7 +3,7 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://documented-specifically-hl-artistic.trycloudflare.com"
+application_url = "https://va-salaries-incorporate-anime.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://documented-specifically-hl-artistic.trycloudflare.com/auth/callback",
-  "https://documented-specifically-hl-artistic.trycloudflare.com/auth/shopify/callback",
-  "https://documented-specifically-hl-artistic.trycloudflare.com/api/auth/callback"
+  "https://va-salaries-incorporate-anime.trycloudflare.com/auth/callback",
+  "https://va-salaries-incorporate-anime.trycloudflare.com/auth/shopify/callback",
+  "https://va-salaries-incorporate-anime.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -1,13 +1,7 @@
 import { 
-    Card, 
     Page, 
-    Layout,
     Text, 
-    InlineGrid, 
     BlockStack, 
-    Button, 
-    Tooltip, 
-    Icon, 
     Banner,
     FooterHelp,
     Link,
@@ -22,6 +16,7 @@ import { GET_MERCHANT_BY_SHOP_ENCODE } from "../../apollo-client/query.js";
 import { appClient } from "../../apollo-client/index.js";
 import {useAppBridge} from "@shopify/app-bridge-react";
 import { encode } from "js-base64";
+import SeasonEffects from "../components/home/seasonEffects.jsx";
 
 export default function HomePage() {
     const {t} = useTranslation();
@@ -42,39 +37,44 @@ export default function HomePage() {
 
     const tabs = [
         {
-          id: 'seasonal-effects',
-          content: 'Seasonal Effects',
-          badge: '10+',
-          accessibilityLabel: 'Seasonal Effects',
-          panelID: 'seasonal-effects',
+            id: 'seasonal-effects',
+            content: 'Seasonal Effects',
+            badge: '10+',
+            accessibilityLabel: 'Seasonal Effects',
+            panelID: 'seasonal-effects',
+            children: <SeasonEffects/>,
         },
         {
-          id: 'store-sale-effects',
-          content: 'Store Sale Effects',
-          badge: '10+',
-          accessibilityLabel: 'Store Sale Effects',
-          panelID: 'store-sale-effects',
+            id: 'store-sale-effects',
+            content: 'Store Sale Effects',
+            badge: '10+',
+            accessibilityLabel: 'Store Sale Effects',
+            panelID: 'store-sale-effects',
+            children:'',
         },
         {
-          id: 'fall-effects',
-          content: 'Fall Effects',
-          badge: '10+',
-          accessibilityLabel: 'Fall Effects',
-          panelID: 'fall-effects',
+            id: 'fall-effects',
+            content: 'Fall Effects',
+            badge: '10+',
+            accessibilityLabel: 'Fall Effects',
+            panelID: 'fall-effects',
+            children:'',
         },
         {
-          id: 'space-effects',
-          content: 'Space Effects',
-          badge: '10+',
-          accessibilityLabel: 'Space Effects',
-          panelID: 'space-effects',
+            id: 'space-effects',
+            content: 'Space Effects',
+            badge: '10+',
+            accessibilityLabel: 'Space Effects',
+            panelID: 'space-effects',
+            children:'',
         },
         {
-          id: 'other-effects',
-          content: 'Other Effects',
-          badge: '10+',
-          accessibilityLabel: 'Other Effects',
-          panelID: 'other-effects',
+            id: 'other-effects',
+            content: 'Other Effects',
+            badge: '10+',
+            accessibilityLabel: 'Other Effects',
+            panelID: 'other-effects',
+            children:'',
         },
     ];
 
@@ -118,8 +118,8 @@ export default function HomePage() {
                 <Box>
                     <LegacyCard sectioned>
                         <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange} fitted>
-                            <LegacyCard.Section title={tabs[selected].content}>
-                                <p>Tab {selected} selected</p>
+                            <LegacyCard.Section>
+                                {tabs[selected].children}
                             </LegacyCard.Section>
                         </Tabs>
                     </LegacyCard>

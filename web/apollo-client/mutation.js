@@ -5,7 +5,7 @@ const CREATE_MERCHANT = gql`
     ${merchantFragment}
     mutation createMerchant($input: merchantInput){
         createMerchant(input: $input){
-            ...merchantFragment
+            ...merchantFragment 
         }
     }
 `
