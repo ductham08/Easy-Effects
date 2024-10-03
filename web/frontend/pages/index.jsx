@@ -16,7 +16,7 @@ import { GET_MERCHANT_BY_SHOP_ENCODE } from "../../apollo-client/query.js";
 import { appClient } from "../../apollo-client/index.js";
 import {useAppBridge} from "@shopify/app-bridge-react";
 import { encode } from "js-base64";
-import SeasonEffects from "../components/home/seasonEffects.jsx";
+import SettingsEffect from "../components/home/SettingsEffect.jsx";
 
 export default function HomePage() {
     const {t} = useTranslation();
@@ -42,7 +42,7 @@ export default function HomePage() {
             badge: '10+',
             accessibilityLabel: 'Seasonal Effects',
             panelID: 'seasonal-effects',
-            children: <SeasonEffects/>,
+            children: <SettingsEffect/>,
         },
         {
             id: 'store-sale-effects',
