@@ -3,7 +3,7 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://canvas-howto-classes-conversations.trycloudflare.com"
+application_url = "https://switched-mighty-formats-expanded.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://canvas-howto-classes-conversations.trycloudflare.com/auth/callback",
-  "https://canvas-howto-classes-conversations.trycloudflare.com/auth/shopify/callback",
-  "https://canvas-howto-classes-conversations.trycloudflare.com/api/auth/callback"
+  "https://switched-mighty-formats-expanded.trycloudflare.com/auth/callback",
+  "https://switched-mighty-formats-expanded.trycloudflare.com/auth/shopify/callback",
+  "https://switched-mighty-formats-expanded.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -1,82 +1,65 @@
-import { 
-    Page, 
-    Text, 
-    BlockStack, 
-    Banner,
-    FooterHelp,
-    Link,
+import {
+    Page,
+    Text,
     Box,
+    Card,
+    Layout,
+    List,
+    Banner,
     Tabs,
-    LegacyCard
+    LegacyCard,
+    Divider,
+    CalloutCard,
 } from "@shopify/polaris";
 import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { GET_MERCHANT_BY_SHOP_ENCODE } from "../../apollo-client/query.js";
 import { appClient } from "../../apollo-client/index.js";
-import {useAppBridge} from "@shopify/app-bridge-react";
+import { useAppBridge } from "@shopify/app-bridge-react";
 import { encode } from "js-base64";
-import SettingsEffect from "../components/home/SettingsEffect.jsx";
+import ChristmasEffect from "../components/effects/ChristmasEffect.jsx";
+import StoreSaleEffect from './../components/effects/StoreSaleEffect';
+import FallEffect from './../components/effects/FallEffect';
 
 export default function HomePage() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const shopify = useAppBridge()
     const shopUrl = shopify.config.shop
     const shopEndcode = encode(shopUrl)
     const [selected, setSelected] = useState(0);
 
-    const handleTabChange = useCallback(
-        (selectedTabIndex) => setSelected(selectedTabIndex),
-        [],
-    );
-
-    const [getMerchant, {data}] = useLazyQuery(GET_MERCHANT_BY_SHOP_ENCODE, {
-        client: appClient,
-        fetchPolicy: "no-cache"
-    })
+    const handleTabChange = useCallback((selectedTabIndex) => setSelected(selectedTabIndex), []);
 
     const tabs = [
         {
-            id: 'seasonal-effects',
-            content: 'Seasonal Effects',
-            badge: '10+',
-            accessibilityLabel: 'Seasonal Effects',
-            panelID: 'seasonal-effects',
-            children: <SettingsEffect/>,
+            id: 'christmas-effect',
+            content: 'All',
+            accessibilityLabel: 'Christmas Effect',
+            panelID: 'christmas-effect',
+            children: <ChristmasEffect/>,
+            badge: '10',
         },
         {
-            id: 'store-sale-effects',
-            content: 'Store Sale Effects',
-            badge: '10+',
-            accessibilityLabel: 'Store Sale Effects',
-            panelID: 'store-sale-effects',
-            children:'',
+            id: 'store-sale-effect',
+            content: 'Store Sale Effect',
+            panelID: 'store-sale-effect',
+            children: <StoreSaleEffect/>,
+            badge: '10',
         },
         {
-            id: 'fall-effects',
-            content: 'Fall Effects',
-            badge: '10+',
-            accessibilityLabel: 'Fall Effects',
-            panelID: 'fall-effects',
-            children:'',
-        },
-        {
-            id: 'space-effects',
-            content: 'Space Effects',
-            badge: '10+',
-            accessibilityLabel: 'Space Effects',
-            panelID: 'space-effects',
-            children:'',
-        },
-        {
-            id: 'other-effects',
-            content: 'Other Effects',
-            badge: '10+',
-            accessibilityLabel: 'Other Effects',
-            panelID: 'other-effects',
-            children:'',
-        },
+            id: 'fall-effect',
+            content: 'Fall Effect',
+            panelID: 'fall-effect',
+            children: <FallEffect/>,
+            badge: '10',
+        }
     ];
+
+    const [getMerchant, { data }] = useLazyQuery(GET_MERCHANT_BY_SHOP_ENCODE, {
+        client: appClient,
+        fetchPolicy: "no-cache"
+    })
 
     useEffect(() => {
 
@@ -89,51 +72,71 @@ export default function HomePage() {
     }, [])
 
     return (
-        <Page>
+        <div className="sp-dashboard-page">
+            <Page title="Home Page" >
 
-            <BlockStack gap={'400'}>
-                <Box>
-                    <Text variant="headingLg" as="h5">
-                        Hi! { data ? data?.getMerchantByShopEncode?.name : ''}
-                    </Text>
-                    <Text variant="bodyLg" as="p">
-                        Welcome to Easy Builder, where you can freely create websites according to your own personality without worrying about functional limitations.
-                    </Text>
-                </Box>
+                <Layout>
+                    <Layout.Section>
+                        <Card roundedAbove="sm">
+                            <Text as="h2" variant="headingSm">
+                                Online store dashboard
+                            </Text>
+                            <Box paddingBlockStart="200">
+                                <Text as="p" variant="bodyMd">
+                                    View a summary of your online store’s performance.
+                                </Text>
+                            </Box>
+                        </Card>
+                    </Layout.Section>
 
-                <Box>
-                    <Banner
-                        title="Easy Effects is currently disabled on your store. Click 'Enable App' to activate."
-                        tone="warning"
-                        action={{content: 'Enable App', url: ``}}
-                        onDismiss={() => {}}
-                    >
-                        <p>
-                            Add weights to show accurate rates at checkout and when buying shipping
-                            labels in Shopify.
-                        </p>
-                    </Banner>
-                </Box>
+                    <Layout.Section>
+                        <Banner
+                            title="The app is disabled on your published theme."
+                            action={
+                                {
+                                    content: 'Enable on theme editor'
+                                }
+                            }
+                            tone="warning"
+                        >
+                            <List>
+                                <List.Item>
+                                    Disabling the app will prevent it from working as intended.
+                                </List.Item>
+                            </List>
+                        </Banner>
+                    </Layout.Section>
 
-                <Box>
-                    <LegacyCard sectioned>
-                        <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange} fitted>
-                            <LegacyCard.Section>
-                                {tabs[selected].children}
-                            </LegacyCard.Section>
-                        </Tabs>
-                    </LegacyCard>
-                </Box>
+                    <Layout.Section>
+                        <Card>
+                            <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange}>
+                                <Divider borderColor="border" />
+                                <Box paddingBlock="400">
+                                    <Box paddingBlockStart="200">
+                                        {tabs[selected].children}
+                                    </Box>
+                                </Box>
+                            </Tabs>
+                        </Card>
+                    </Layout.Section>
 
-                <Box>
-                    <FooterHelp>
-                        Learn more about{' '}
-                        <Link url="https://help.shopify.com/manual/orders/fulfill-orders">
-                            fulfilling orders
-                        </Link>
-                    </FooterHelp>
-                </Box>
-            </BlockStack>
-        </Page>
+                    <Layout.Section>
+                        <CalloutCard
+                            title="Learn more about how to make the most of the Easy Effects app"
+                            illustration="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg"
+                            primaryAction={{
+                                content: 'Read article',
+                                url: '#',
+                            }}
+                        >
+                            <p>A complete guide to the steps to create the effect you want.</p>
+                        </CalloutCard>
+                    </Layout.Section>
+
+
+                </Layout>
+
+            </Page>
+        </div>
     );
 }
