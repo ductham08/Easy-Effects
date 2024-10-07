@@ -1,35 +1,29 @@
-import { BlockStack, Box, Text } from '@shopify/polaris'
+import { BlockStack, Box, Button, Card, InlineGrid, Text } from '@shopify/polaris'
+import {Icon} from '@shopify/polaris';
+import { ViewIcon } from '@shopify/polaris-icons';
 import React from 'react'
 
 const ChristmasEffect = () => {
     return (
         <div>
             <BlockStack gap="400">
-                <Box padding="400" borderColor="border" borderWidth="025" shadow="200" borderRadius="300">
-                    <Text variant="bodyMd" as="p">
-                        Christmas Effect component
-                    </Text>
-                </Box>
-                <Box padding="400" borderColor="border" borderWidth="025" shadow="200" borderRadius="300">
-                    <Text variant="bodyMd" as="p">
-                        Christmas Effect component
-                    </Text>
-                </Box>
-                <Box padding="400" borderColor="border" borderWidth="025" shadow="200" borderRadius="300">
-                    <Text variant="bodyMd" as="p">
-                        Christmas Effect component
-                    </Text>
-                </Box>
-                <Box padding="400" borderColor="border" borderWidth="025" shadow="200" borderRadius="300">
-                    <Text variant="bodyMd" as="p">
-                        Christmas Effect component
-                    </Text>
-                </Box>
-                <Box padding="400" borderColor="border" borderWidth="025" shadow="200" borderRadius="300">
-                    <Text variant="bodyMd" as="p">
-                        Christmas Effect component
-                    </Text>
-                </Box>
+                <Card roundedAbove="sm">
+                    <BlockStack gap="200">
+                        <InlineGrid columns="1fr auto">
+                            <Text as="h2" variant="headingSm">
+                                Variants
+                            </Text>
+                            <Button
+                                onClick={() => {}}
+                                accessibilityLabel="Vieww demo"
+                                icon={ ViewIcon }
+                            />
+                        </InlineGrid>
+                        <Text as="p" variant="bodyMd">
+                            Export variants
+                        </Text>
+                    </BlockStack>
+                </Card>
             </BlockStack>
         </div>
     )

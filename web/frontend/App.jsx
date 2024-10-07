@@ -24,7 +24,8 @@ export default function App() {
                         <Provider store={store}>
                             <NavMenu>
                                 <Link to={"/"} rel={"home"}>Home</Link>
-                            </NavMenu>
+                                <Link to={"/settings-page"} >Settings Effect</Link>
+                            </NavMenu>  
                             <Routes pages={pages}/>
                         </Provider>
                     </ApolloProvider>

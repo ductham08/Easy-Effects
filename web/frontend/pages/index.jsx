@@ -34,7 +34,7 @@ export default function HomePage() {
     const tabs = [
         {
             id: 'christmas-effect',
-            content: 'All',
+            content: 'Christmas Effect',
             accessibilityLabel: 'Christmas Effect',
             panelID: 'christmas-effect',
             children: <ChristmasEffect/>,
