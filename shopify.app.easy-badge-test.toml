@@ -3,7 +3,7 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://everywhere-kansas-latin-toe.trycloudflare.com"
+application_url = "https://movies-builds-andreas-concerning.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://everywhere-kansas-latin-toe.trycloudflare.com/auth/callback",
-  "https://everywhere-kansas-latin-toe.trycloudflare.com/auth/shopify/callback",
-  "https://everywhere-kansas-latin-toe.trycloudflare.com/api/auth/callback"
+  "https://movies-builds-andreas-concerning.trycloudflare.com/auth/callback",
+  "https://movies-builds-andreas-concerning.trycloudflare.com/auth/shopify/callback",
+  "https://movies-builds-andreas-concerning.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

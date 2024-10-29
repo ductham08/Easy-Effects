@@ -1,0 +1,41 @@
+.ef-list-effects{
+    // Effects item scss
+    --list-effect-padding-top: 25px;
+    --list-effect-margin-top: 5px;
+    --list-effect-border-color: gainsboro;
+    --list-effect-border-width: 1px;
+
+    // Effects item scss
+    --effect-item-border-color: gainsboro;
+    --effect-item-active-border-color: red;
+    --effect-item-padding: 5px 15px;
+    --effect-item-border-radius: 4px;
+    --effect-item-gap: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: var(--list-effect-margin-top);
+    gap: var(--effect-item-gap);
+    padding-top: var(--list-effect-padding-top);
+    border-top: var(--list-effect-border-width) solid var(--list-effect-border-color);
+    .ef-effect-item{
+        cursor: pointer;
+        box-shadow: 0px 0px 3px var(--effect-item-border-color);
+        border: 1px solid var(--effect-item-border-color);
+        padding: var(--effect-item-padding);
+        border-radius: var(--effect-item-border-radius);
+        transition: var(--transition-time-translate) ease-in-out;
+
+        &:hover{
+            transform: translateY(var(--transition-translate-y));
+            transition: var(--transition-time-translate) ease-in-out;
+        }
+
+        &.active{
+            transition: var(--transition-time-translate) ease-in-out;
+            box-shadow: 0px 0px 3px var(--effect-item-active-border-color);
+            border: 1px solid var(--effect-item-active-border-color);
+        }
+    }
+}

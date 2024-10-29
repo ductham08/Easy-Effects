@@ -1,5 +1,4 @@
 import {DeliveryMethod} from "@shopify/shopify-api";
-import APP_UNINSTALLED from "./frontend/webhooks/APP_UNINSTALLED.js";
 
 /**
  * @type {{[key: string]: import("@shopify/shopify-api").WebhookHandler}}
@@ -11,11 +10,6 @@ export default {
      *
      * https://shopify.dev/docs/apps/webhooks/configuration/mandatory-webhooks#customers-data_request
      */
-    APP_UNINSTALLED: {
-        deliveryMethod: DeliveryMethod.Http,
-        callbackUrl: "/api/webhooks",
-        callback: APP_UNINSTALLED
-    },
     CUSTOMERS_DATA_REQUEST: {
         deliveryMethod: DeliveryMethod.Http,
         callbackUrl: "/api/webhooks",

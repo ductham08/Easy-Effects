@@ -6,8 +6,6 @@ import serveStatic from "serve-static";
 
 import shopify from "./shopify.js";
 import PrivacyWebhookHandlers from "./privacy.js";
-import registerApis from "./frontend/api/index.js";
-import authCallback from "./authCallback.js";
 
 const PORT = parseInt(
     process.env.BACKEND_PORT || process.env.PORT || "3000",
@@ -26,7 +24,6 @@ app.get(shopify.config.auth.path, shopify.auth.begin());
 app.get(
     shopify.config.auth.callbackPath,
     shopify.auth.callback(),
-    authCallback,
     shopify.redirectToShopifyOrAppRoot()
 );
 app.post(
@@ -40,8 +37,6 @@ app.post(
 app.use("/api/*", shopify.validateAuthenticatedSession());
 
 app.use(express.json());
-
-registerApis(app)
 
 app.use(shopify.cspHeaders());
 app.use(serveStatic(STATIC_PATH, {index: false}));
