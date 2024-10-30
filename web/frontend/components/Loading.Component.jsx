@@ -9,6 +9,7 @@ const LoadingComponent = () => {
             <div className="dot"></div>
         </div>
     )
+    
 }
 
 export default LoadingComponent
