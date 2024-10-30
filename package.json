@@ -12,12 +12,16 @@
     "deploy": "shopify app deploy"
   },
   "dependencies": {
-    "@shopify/cli": "^3.67.2",
-    "@shopify/shopify-api": "^11.4.1",
+    "@shopify/cli": "^3.69.3",
+    "@shopify/shopify-api": "^11.6.0",
+    "@shopify/shopify-app-express": "^5.0.8",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "nodemodule": "^0.3.0",
-    "sass": "^1.80.4"
+    "sass": "^1.80.4",
+    "shopify-api-node": "^3.14.0",
+    "shopify-app-session-storage-mongodb": "^0.0.1-security",
+    "shopify-node-api": "^1.11.1"
   },
   "author": "No Name",
   "private": true,

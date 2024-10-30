@@ -13,7 +13,21 @@ export const merchantApi = createApi({
             }),
             providesTags: ['Merchant']
         }),
+        getMerchantByShopUrl:  builder.query({
+            query: (shopUrl) => ({
+                url: `/api/get-merchant/${shopUrl}`
+            }),
+            providesTags: ['Merchant']
+        }),
+        createMerchant: builder.mutation({
+            query: (merchant) => ({
+                url: '/api/create-merchant',
+                method: 'POST',
+                body: merchant
+            }),
+            invalidatesTags: ['Merchant']
+        }),
     })
 })
 
-export const { useGetMerchantQuery } = merchantApi
+export const { useGetMerchantQuery, useGetMerchantByShopUrlQuery, useCreateMerchantMutation } = merchantApi
