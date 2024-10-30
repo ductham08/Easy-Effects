@@ -3,7 +3,7 @@
 client_id = "626bc6d5e882c2548f50671a3339ff76"
 name = "Easy Badge Test"
 handle = "easy-badge-test"
-application_url = "https://movies-builds-andreas-concerning.trycloudflare.com"
+application_url = "https://involvement-conservative-heads-metro.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_files,read_products,read_themes,write_content,write_files,write_t
 
 [auth]
 redirect_urls = [
-  "https://movies-builds-andreas-concerning.trycloudflare.com/auth/callback",
-  "https://movies-builds-andreas-concerning.trycloudflare.com/auth/shopify/callback",
-  "https://movies-builds-andreas-concerning.trycloudflare.com/api/auth/callback"
+  "https://involvement-conservative-heads-metro.trycloudflare.com/auth/callback",
+  "https://involvement-conservative-heads-metro.trycloudflare.com/auth/shopify/callback",
+  "https://involvement-conservative-heads-metro.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

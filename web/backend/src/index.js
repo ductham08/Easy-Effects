@@ -4,7 +4,8 @@ import cors from "cors";
 import dotenv from 'dotenv'
 import http from "http";
 import { Server } from "socket.io";
-import merchantRouter from "./routes/merchantRouter";
+import merchantRouter from "./routes/merchantRouter.js";
+import effectRouter from "./routes/effectRouter.js";
 
 dotenv.config({
     path: '../../.env',
@@ -26,6 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api", merchantRouter);
+app.use("/api", effectRouter);
 
 mongoose.connect(process.env.SHOPIFY_MONGODB_URL)
     .then(() => {

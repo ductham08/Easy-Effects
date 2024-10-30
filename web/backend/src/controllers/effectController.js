@@ -1,13 +1,14 @@
-import Merchant from "../models/merchantModel.js";
+import Effect from "../models/effectModel.js";
 
-export const getMerchant = async (req, res) => {
+export const getEffects = async (req, res) => {
   try {
-    
+
+    const dataEffects = await Effect.find();
     return res.json({
-      "data": [],
+      "data": dataEffects,
       "message": "Get merchant success!",
       "erorr_code": 200
-    })
+    });
 
   } catch (error) {
 
@@ -15,7 +16,7 @@ export const getMerchant = async (req, res) => {
       "erorr": error,
       "message": "Get merchant erorr!",
       "erorr_code": 205
-    })
-
+    });
+    
   }
 };

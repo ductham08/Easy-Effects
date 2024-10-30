@@ -1,7 +1,7 @@
 import express from "express";
-import { getMerchant } from "../controllers/merchantController";
+import { getMerchant } from "../controllers/merchantController.js";
 
 const merchantRouter = express.Router();
-merchantRouter.put('/get-merchant', getMerchant)
+merchantRouter.get('/get-merchant', getMerchant)
 
 export default merchantRouter;

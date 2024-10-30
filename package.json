@@ -14,6 +14,7 @@
   "dependencies": {
     "@shopify/cli": "^3.67.2",
     "@shopify/shopify-api": "^11.4.1",
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "nodemodule": "^0.3.0",
     "sass": "^1.80.4"
@@ -26,6 +27,8 @@
     "web/frontend"
   ],
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
     "react-error-overlay": "^6.0.9"
   }
 }

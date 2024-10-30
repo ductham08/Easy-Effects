@@ -1,41 +1,26 @@
 import React, { useState } from 'react'
 import "../../assets/scss/Components/ListEffects.Component.scss"
+import LoadingComponent from '../Loading.Component';
+import { useGetEffectsQuery } from '../../app/apis/effect';
 
 const ListEffectsComponent = () => {
     const [itemActive, setItemActive] = useState(0);
-
-    const listEffect = [
-        {
-            id: 0,
-            effectName: "Effect one",
-            effectClass: "effect-one"
-        },
-        {
-            id: 1,
-            effectName: "Effect two",
-            effectClass: "effect-two"
-        },
-        {
-            id: 2,
-            effectName: "Effect three",
-            effectClass: "effect-three"
-        },
-        {
-            id: 3,
-            effectName: "Effect four",
-            effectClass: "effect-four"
-        }
-    ]
-
+    const {data:dataEffects = [], isLoading: loadingGetEffects} = useGetEffectsQuery()
+     
     const handleChangeEffect = (item) => {
-        setItemActive(item?.id)
+        setItemActive(item?._id)
     }
 
+    if (loadingGetEffects){
+        return (
+            <LoadingComponent/>
+        )
+    }
     return (
         <div className='ef-list-effects'>
             {
-                listEffect.map((item) => (
-                    <div onClick={() => handleChangeEffect(item)} key={item.id} className={`ef-effect-item ${itemActive === item.id ? 'active' : ''} `} id={`ef-item-${item.id}`}>
+                dataEffects.data.map((item) => (
+                    <div onClick={() => handleChangeEffect(item)} key={item._id} className={`ef-effect-item ${itemActive === item._id ? 'active' : ''} `} id={`ef-item-${item._id}`}>
                         <p>{item.effectName}</p>
                     </div>        
                 ))

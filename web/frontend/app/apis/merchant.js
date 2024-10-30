@@ -1,18 +1,19 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const merchantSlice = createSlice({
-    name: 'merchant',
-    initialState: {
-        name: "ABC"
-    },
-    reducers: {
-        setMerchant: (state, action) => {
-            state.name = action.payload.name
-        },
-    }
+export const merchantApi = createApi({
+    reducerPath: "merchantApi",
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'http://localhost:4000',
+    }),
+    tagTypes: ['Merchant'],
+    endpoints: (builder) => ({
+        getMerchant:  builder.query({
+            query: () => ({
+                url: `/api/get-merchant`
+            }),
+            providesTags: ['Merchant']
+        }),
+    })
 })
 
-// Action creators are generated for each case reducer function
-export const {setMerchant} = merchantSlice.actions
-
-export default merchantSlice
+export const { useGetMerchantQuery } = merchantApi
